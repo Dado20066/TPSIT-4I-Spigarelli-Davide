@@ -20,7 +20,7 @@ public class FCFS {
 		tArrivo[0] = 0;
 		tArrivo[1] = 1;
 		tArrivo[2] = 2;
-		tArrivo[3] = 3;
+		tArrivo[3]  = 3;
 
 		tTempodiEsecuzione[0] = 5;
 		tTempodiEsecuzione[1] = 3;
@@ -31,6 +31,9 @@ public class FCFS {
 		
 		for(int i=0;i<=0;i++) {
 			tTempodiAttesa[i]=tTempodiEsecuzione[i]-tArrivo[i];
+		}
+		for(int i=0;i<=0;i++) {
+			tTempodiServizio[i]=tTempodiServizio[-1];
 		}
 		System.out.println();
 
