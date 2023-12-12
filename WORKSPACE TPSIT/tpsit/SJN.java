@@ -5,7 +5,7 @@ public class SJN {
 
 
 	public static void main(String[] args) {
-
+		//Creo le variabili principali che mi servono 
 		String [] processo = new String [4];
 		int [] arrivo = new int [4];
 		int [] esecuzione = new int [4];
@@ -13,7 +13,7 @@ public class SJN {
 		int [] attesa = new int [4];
 
 		double mediaAttesa;
-
+		//Vado a inserire il valore di tutti i processi e ci metto la posizione
 		processo[0] = "P0";
 		processo[1] = "P1";
 		processo[2] = "P2";
@@ -30,7 +30,7 @@ public class SJN {
 		
 //		---------------------------------------------
 		int ultimo = esecuzione.length-1;
-
+		// Qui vado a creare un FOR che mi permette di andar a calcolare tutti i processi con le loro posizioni e i loro valori
 		for(int superficie=0;superficie<=ultimo-1;superficie=superficie+1){
 			for(int posizione=ultimo-1;posizione>=superficie;posizione--){
 				if(esecuzione[posizione]>esecuzione[posizione+1]){
@@ -51,7 +51,8 @@ public class SJN {
 		}
 //		---------------------------------------------
 
-		
+		// In questo pezzo vado a calcolare il servizio e l'esecuzione
+		//Vado a calcolare dopo anche l'attesa per poi andar a stampare nella consolle tutti i risultati.
 
 		for(int y = 0; y<4; y++) {
 			if(y==0) {
