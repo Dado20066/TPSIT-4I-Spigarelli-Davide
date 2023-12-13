@@ -1,7 +1,9 @@
 package it.edu.iisgubbio;
+
 public class FcFs {
 	public static void main(String[] args) {
 		
+		// Create the main variables needed
 		String [] Posprocesso = new String [4];
 		int [] arrivo = new int [4];
 		int [] tTempodiEsecuzione = new int [4];
@@ -10,6 +12,7 @@ public class FcFs {
 		
 		double mediaAttesa;
 		
+		// Insert the value of all processes and put them in position
 		Posprocesso[0] = "P0";
 		Posprocesso[1] = "P1";
 		Posprocesso[2] = "P2";
@@ -45,7 +48,10 @@ public class FcFs {
 			System.out.println(Posprocesso[i]);
 		}
 		
-		System.out.println("la media attesa è: "+mediaAttesa);
+		System.out.println("The average waiting time is: "+mediaAttesa);
 		
 	}
 }
+
+
+// This program calculates the average waiting time of a set of processes using the First Come First Served (FCFS) algorithm.
