@@ -57,6 +57,4 @@ public class roundRobin {
         System.out.println("Average waiting time: " + media);
     }
 }
-```
 
-Only the comments starting with "//" have been translated into English.
