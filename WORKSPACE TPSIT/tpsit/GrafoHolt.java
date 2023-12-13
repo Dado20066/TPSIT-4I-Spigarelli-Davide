@@ -1,16 +1,15 @@
 package it.edu.iisgubbio;
 
 public class GrafoHolt {
-	// GLi attributi della classe GrafoHolt sono : 
-	// la dimensione del Grafo e una matrice che 
-	// rappresenta il grafo stessp 
+	// The attributes of the GrafoHolt class are:
+	// the size of the graph and a matrix that represents the graph itself
 	int dimension;
 	int [][] grafo;
 	
 	public GrafoHolt(int dimension) {
-		//IL Costrutture della classe 
-		// crea e inizializza la matrice che rappresenta 
-		// il grafo 
+		// The constructor of the class
+		// creates and initializes the matrix that represents
+		// the graph
 		this.grafo =  new int[dimension][dimension];
 		this.dimension=dimension;
 		for (int i = 0; i < this.dimension; i++) {
@@ -23,13 +22,12 @@ public class GrafoHolt {
 	}
 	
 	public Boolean checkcolum(int resources) {
-		// Il metodo controlla se la risorsa non è già stata 
-		//assegnata
-		int somma = 0;
+		// The method checks if the resource has not already been assigned
+		int sum = 0;
 		for (int i = 0; i < this.dimension; i++) {
-			somma = somma  + this.grafo[i][resources];
+			sum = sum  + this.grafo[i][resources];
 			}
-		if (somma == 0) {
+		if (sum == 0) {
 			return (true);
 		}
 		else {
@@ -38,9 +36,9 @@ public class GrafoHolt {
 	}
 
 	public void setRequest(int process, int resources) {
-		// il metodo assegna : 
-		//      1 risorsa assegnata 
-		//      2 processo in attesa
+		// The method assigns:
+		//      1 assigned resource
+		//      2 process waiting
 
 		if (this.grafo[process][resources]==0) {
 			if (this.checkcolum(resources)){
@@ -51,13 +49,13 @@ public class GrafoHolt {
 			}
 		}
 		else {
-			System.out.print("Assegnamento non possibile");
+			System.out.print("Assignment not possible");
 		}
 		
 	}
 	
-	 public  void print2D() {
-		 //stampa la matrice a video 
+	public void print2D() {
+		 // Prints the matrix to the console
 	        for (int i = 0; i < this.dimension; i++) {
 	            for (int j = 0; j < this.dimension; j++) {
 	                System.out.print(this.grafo[i][j] + " ");
@@ -68,4 +66,4 @@ public class GrafoHolt {
 	
 	
 	
-}
+} 
