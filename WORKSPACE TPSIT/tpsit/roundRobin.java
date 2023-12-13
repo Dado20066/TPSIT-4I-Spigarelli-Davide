@@ -1,9 +1,10 @@
+```java
 package it.edu.iisgubbio;
 
 public class roundRobin {
 
     public static void main(String[] args) {
-        // Dichiarazione e inizializzazione delle variabili
+        // Declaration and initialization of variables
         String[] processo = new String[4];
         int[] tArrivo = new int[4];
         int[] tEse = new int[4];
@@ -13,25 +14,25 @@ public class roundRobin {
         int quantitaTempo = 3;
         int tExeRim = 0;
 
-        // Inizializzazione dei processi
+        // Initialization of processes
         processo[0] = "P0";
         processo[1] = "P1";
         processo[2] = "P2";
         processo[3] = "P3";
 
-        // Inizializzazione dei tempi di arrivo
+        // Initialization of arrival times
         tArrivo[0] = 0;
         tArrivo[1] = 1;
         tArrivo[2] = 2;
         tArrivo[3] = 3;
 
-        // Inizializzazione dei tempi di esecuzione
+        // Initialization of execution times
         tEse[0] = 5;
         tEse[1] = 3;
         tEse[2] = 8;
         tEse[3] = 6;
 
-        System.out.println("Quanto di tempo: " + quantitaTempo);
+        System.out.println("Time quantum: " + quantitaTempo);
 
         for (int i = 0; i < 4; i++) {
             if (tArrivo[i] == 0) {
@@ -45,15 +46,18 @@ public class roundRobin {
                 tEse[i] = tEseRim;
             }
 
-            // Stampa dei dettagli del processo
-            System.out.println("Processo: " + processo[i]);
-            System.out.println("Tempo di arrivo: " + tArrivo[i]);
-            System.out.println("Tempo di Esecuzione: " + tEse[i]);
-            System.out.println("Tempo di servizio: " + tServizio[i]);
-            System.out.println("Tempo di attesa: " + tAttesa[i]);
+            // Printing process details
+            System.out.println("Process: " + processo[i]);
+            System.out.println("Arrival Time: " + tArrivo[i]);
+            System.out.println("Execution Time: " + tEse[i]);
+            System.out.println("Service Time: " + tServizio[i]);
+            System.out.println("Waiting Time: " + tAttesa[i]);
         }
 
-        // Calcolo e stampa della media dei tempi di attesa
-        System.out.println("Media tempi di attesa: " + media);
+        // Calculation and printing of average waiting time
+        System.out.println("Average waiting time: " + media);
     }
 }
+```
+
+Only the comments starting with "//" have been translated into English.
