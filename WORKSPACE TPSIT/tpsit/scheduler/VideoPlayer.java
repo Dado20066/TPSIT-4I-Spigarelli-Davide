@@ -1,77 +1,61 @@
 package scheduler;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
+/**
+ * The VideoPlayer class simulates a video player that plays a list of shuffled videos
+ * and continues until all videos have reached their end duration.
+ */
 public class VideoPlayer {
 
-	public static void main(String[] args) {
+    /**
+     * The main method initializes video data, shuffles the video list, and plays the videos
+     * until all videos reach their end duration.
+     *
+     * @param args The command line arguments (not used in this program).
+     */
+    public static void main(String[] args) {
 
-		int totalTime = 0;
-		int randomNumber = 0;
-		int displayTime = 1;
+        // Display time for each iteration in minutes
+        int displayTime = 1;
 
-		/*
-		 * List of videos
-		 */
-		
-		List<Video> videoList = new ArrayList<>();
-		videoList.add(new Video("Video1", 3, 0));
-		videoList.add(new Video("Video2", 6, 0));
-		videoList.add(new Video("Video3", 9, 0));
-		videoList.add(new Video("Video4", 12, 0));
+        // List to store Video objects
+        List<Video> videoList = new ArrayList<>();
+        videoList.add(new Video("Video1", 3, 0));
+        videoList.add(new Video("Video2", 6, 0));
+        videoList.add(new Video("Video3", 9, 0));
+        videoList.add(new Video("Video4", 12, 0));
 
-		/*
-		 * calculate the bigger duration
-		 */
-		
-		int biggerDuration = 0;
-		for (int x = 0; x < videoList.size(); x++) {
-			if (videoList.get(x).getDuration() > biggerDuration) {
-				biggerDuration = videoList.get(x).getDuration();
-			}
-		}
+        // Shuffle the video list for random playback order
+        Collections.shuffle(videoList);
 
-		/*
-		 * declaration of lastRandom variable, initially is the size of the list plus
-		 * one because it shoudn't be possible to equal to the first random number
-		 */
+        // Continue playing videos until all videos reach their end duration
+        while (videoList.get(0).duration > 0 || videoList.get(1).duration > 0 || videoList.get(2).duration > 0
+                || videoList.get(3).duration > 0) {
 
-		int lastRandom = videoList.size() + 1;
+            // Shuffle the video list for random playback order in each iteration
+            Collections.shuffle(videoList);
 
-		/*
-		 * riproduct the videos
-		 */
-		
-		while (videoList.get(0).duration > 0 || videoList.get(1).duration > 0 || videoList.get(2).duration > 0
-				|| videoList.get(3).duration > 0
+            // Check for consecutive videos with the same name and swap them
+            for(int t = 0; t < videoList.size(); t++) {
+                if(t < videoList.size()-1) {
+                    if(videoList.get(t).name.equals(videoList.get(t+1).name)) {
+                        Video saveVideo = videoList.get(t);
+                        videoList.remove(t);
+                        videoList.add(t, videoList.get(t+1));
+                        videoList.remove(t+1);
+                        videoList.add(t+1, saveVideo);
+                    }
+                }
+            }
 
-		) {
-			/*
-			 * Generating a random integer beetween 0 and the number of video
-			 */
-			
-			Random random = new Random();
-			randomNumber = random.nextInt(4);
-
-			if (lastRandom != randomNumber) {
-				Video videoInPlaying = videoList.get(randomNumber);
-
-				videoInPlaying.reduceDuration(displayTime);
-				videoInPlaying.increaseDisplayed(displayTime);
-				System.out.println(videoInPlaying.getName());
-
-			}
-
-			lastRandom = randomNumber;
-
-		}
-		for (int x = 0; x < videoList.size(); x++) {
-			System.out.println("video " + (x + 1) + " mostrato per " + videoList.get(x).getdisplayed() + " secondi");
-
-		}
-
-	}
-
+            // Reduce the duration of each video and print the playback message
+            for(int c = 0; c < videoList.size(); c++) {
+                videoList.get(c).reduceDuration(displayTime);
+                System.out.println(videoList.get(c).name + " reproduced for " + displayTime + " min");
+            }
+        }
+    }
 }
