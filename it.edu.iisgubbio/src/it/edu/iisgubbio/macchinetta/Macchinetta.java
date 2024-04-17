@@ -46,6 +46,6 @@ public class Macchinetta {
     }
 
     public void setProfittoMensile(double profittoMensile) {
-        this.profittoMensile = profittoMensile;
+        this.profittoMensile =  profittoMensile;
     }
 }
